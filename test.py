@@ -9,7 +9,7 @@ st.title('タイトル：テスト')
 uploaded_file = st.sidebar.file_uploader("ファイルアップロード", type='csv') 
 
 # グラフx軸設定
-x_axis = st.sidebar.selectbox('x軸項目',('材料A添加量', '材料B添加量', '材料C添加量'))
+x_axis = st.sidebar.selectbox('x軸項目',('社員数', '売上', '商品数'))
 
 
 # メイン画面
@@ -21,5 +21,5 @@ if uploaded_file is not None:
 
     # 選ばれたx軸の値からグラフ化
     st.header('グラフ表示')
-    fig = px.scatter(x=df[x_axis], y=df['引張強度'])
+    fig = px.scatter(x=df[x_axis], y=df['y軸ラベル'])
     st.plotly_chart(fig, use_container_width=True)
